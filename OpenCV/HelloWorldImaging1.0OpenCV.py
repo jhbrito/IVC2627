@@ -16,7 +16,6 @@ cv2.imshow("Image", image)
 cv2.waitKey(0)
 
 # Opening and Viewing an Image
-folder = "Files"
 if not os.path.isfile("lena.png"):
     urllib_request.urlretrieve("https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png",
                                "lena.png")
