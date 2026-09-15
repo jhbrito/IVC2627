@@ -17,11 +17,11 @@ cv2.waitKey(0)
 
 # Opening and Viewing an Image
 folder = "Files"
-if not os.path.isfile(os.path.join(folder, "lena.png")):
+if not os.path.isfile("lena.png"):
     urllib_request.urlretrieve("https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png",
-                               os.path.join(folder, "lena.png"))
+                               "lena.png")
 
-image = cv2.imread(os.path.join(folder, "lena.png"))
+image = cv2.imread("lena.png")
 cv2.imshow("Image", image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
