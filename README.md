@@ -19,6 +19,7 @@ conda install tk
 
 pip install opencv-contrib-python
 
+# For Deep Learning
 pip install ultralytics
 
 pip install filterpy
