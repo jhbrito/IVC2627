@@ -27,6 +27,8 @@ conda install scikit-image
 conda install tk
 
 pip install opencv-contrib-python
+
+conda install tqdm numba
 ```
 
 # For Deep Learning
