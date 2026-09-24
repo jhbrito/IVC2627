@@ -24,6 +24,8 @@ conda install pillow
 
 conda install scikit-image
 
+conda install matplotlib
+
 conda install tk
 
 pip install opencv-contrib-python
