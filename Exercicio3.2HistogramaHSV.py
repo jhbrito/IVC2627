@@ -3,8 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 
-from scipy.ndimage import histogram
-
 folder = "Files"
 files = ["baboon.png", "cao.jpg", "lena.png", "Sharbat_Gula.jpg"]
 
