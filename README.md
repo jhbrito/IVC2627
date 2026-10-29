@@ -28,7 +28,7 @@ conda install matplotlib
 
 conda install tk
 
-pip install opencv-contrib-python
+pip install opencv-contrib-python==4.12.0.88
 
 conda install tqdm numba
 ```
