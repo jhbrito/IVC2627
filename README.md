@@ -31,6 +31,8 @@ conda install tk
 pip install opencv-contrib-python==4.12.0.88
 
 conda install tqdm numba
+
+pip install scikit-learn
 ```
 
 # For Deep Learning
