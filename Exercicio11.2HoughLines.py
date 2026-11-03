@@ -48,7 +48,7 @@ def update_lines():
 
     image_with_lines = img.copy()
     for line_i in lines:
-        line = line_i[0]
+        line = line_i# [0]
         cv2.line(image_with_lines,
                  (int(line[0]), int(line[1])),
                  (int(line[2]), int(line[3])),
