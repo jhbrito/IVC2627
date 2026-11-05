@@ -35,6 +35,14 @@ conda install tqdm numba
 pip install scikit-learn
 ```
 
+# For LabelStudio
+```
+conda create -n LabelStudio python=3.10
+conda activate LabelStudio
+pip install label-studio
+label-studio
+```
+
 # For Deep Learning
 ```
 pip install ultralytics
