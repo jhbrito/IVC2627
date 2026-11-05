@@ -18,7 +18,6 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(device)
 
 # model = YOLO("yolov8n.pt")
-# model = YOLO("best.pt")
 model = YOLO("runs/detect/train/weights/best.pt")
 print("Known Classes ({})".format(len(model.names)))
 for i in range(len(model.names)):

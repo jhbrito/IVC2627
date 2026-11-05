@@ -3,4 +3,4 @@ train: train/images
 val: val/images
 
 nc: 2
-names: ['Airplane', 'Car']
+names: ['Bus', 'Plane']
