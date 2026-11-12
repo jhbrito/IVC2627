@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import time
 
-use_cam = False
+use_cam = True
 folder ="Files"
 file = "vtest.avi"
 
@@ -57,7 +57,7 @@ while True:
 
         gray_image = cv2.cvtColor(frame_mirror, cv2.COLOR_BGR2GRAY)
 
-        dif = np.abs(gray_image - previous_frame)
+        dif = np.abs(gray_image.astype(np.int16) - previous_frame.astype(np.int16)).astype(np.uint8)
         _, fg_mask = cv2.threshold(src=dif,
                                    thresh=threshold,
                                    maxval=1,
