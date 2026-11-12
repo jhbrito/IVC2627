@@ -71,7 +71,7 @@ while True:
         # bg_model = np.mean(previous_frames, axis=2)
         bg_model = np.median(previous_frames, axis=2)
 
-        dif = np.abs(gray_image - bg_model)
+        dif = np.abs(gray_image.astype(np.int16) - bg_model.astype(np.int16)).astype(np.uint8)
         _, fg_mask = cv2.threshold(src=dif,
                                    thresh=threshold,
                                    maxval=1,
