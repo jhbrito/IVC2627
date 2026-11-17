@@ -3,6 +3,8 @@ import os
 import numpy as np
 import argparse
 
+cam = True
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--input",
                     type=str,
@@ -15,7 +17,12 @@ parser.add_argument("--folder",
 
 args = parser.parse_args()
 
-cap = cv2.VideoCapture(os.path.join(args.folder, args.input))
+if cam:
+    cap = cv2.VideoCapture()
+    if not(cap.isOpened()):
+        cap.open(0)
+else:
+    cap = cv2.VideoCapture(os.path.join(args.folder, args.input))
 
 feature_params = dict(maxCorners=100,
                       qualityLevel=0.3,
@@ -28,17 +35,26 @@ lucas_kanade_params = dict(winSize=(15, 15),
 
 color = np.random.randint(0, 255, (100, 3))
 
-ret, old_frame = cap.read()
+ret, old_frame_cap = cap.read()
+old_frame = old_frame_cap.copy()
+if cam:
+    old_frame = old_frame[:, ::-1, :]
 old_frame_gray = cv2.cvtColor(old_frame, cv2.COLOR_BGR2GRAY)
 p0 = cv2.goodFeaturesToTrack(old_frame_gray, mask=None, **feature_params)
 
 mask = np.zeros_like(old_frame)
 
 while True:
-    ret, new_frame = cap.read()
+    ret, new_frame_cap = cap.read()
     if not ret:
         print("No more frames")
         break
+
+    new_frame = new_frame_cap.copy()
+    if cam:
+        new_frame = cv2.flip(new_frame, 1)
+        # new_frame = new_frame[:, ::-1, :]
+
 
     new_frame_gray = cv2.cvtColor(new_frame, cv2.COLOR_BGR2GRAY)
     p1, st, err = cv2.calcOpticalFlowPyrLK(old_frame_gray,
@@ -59,10 +75,10 @@ while True:
                         color[i].tolist(),
                         2)
         new_frame = cv2.circle(new_frame,
-                               (int(a),int(b)),
-                               5,
-                               color[i].tolist(),
-                               -1)
+                   (int(a),int(b)),
+                   5,
+                   color[i].tolist(),
+                   -1)
     img = cv2.add(new_frame, mask)
     cv2.imshow("Mask", mask)
     cv2.imshow("Frame", img)
