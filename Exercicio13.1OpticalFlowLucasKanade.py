@@ -50,11 +50,9 @@ while True:
         print("No more frames")
         break
 
-    new_frame = new_frame_cap.copy()
     if cam:
-        new_frame = cv2.flip(new_frame, 1)
-        # new_frame = new_frame[:, ::-1, :]
-
+        new_frame_cap = new_frame_cap[:, ::-1, :]
+    new_frame = new_frame_cap.copy() # to avoid bug in cv2.circle()
 
     new_frame_gray = cv2.cvtColor(new_frame, cv2.COLOR_BGR2GRAY)
     p1, st, err = cv2.calcOpticalFlowPyrLK(old_frame_gray,

@@ -44,7 +44,7 @@ while True:
                                          1.0,
                                          cv2.NORM_MINMAX)
 
-    # cv2.imshow("flow_norm_normalized", flow_norm_normalized)
+    cv2.imshow("flow_norm_normalized", flow_norm_normalized)
 
     frame_show = frame.copy()
     frame_show[:, :, 0] = frame[:, :, 0]/4 + frame[:, :, 0]*(3/4) * flow_norm_normalized
