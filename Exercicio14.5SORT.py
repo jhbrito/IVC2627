@@ -86,7 +86,7 @@ while True:
                 2)
     cv2.imshow("Tracking", image_objects)
 
-    c = cv2.waitKey(1)
+    c = cv2.waitKey(10)
     if c == 27:
         break
 
