@@ -96,6 +96,7 @@ class App(object):
                 cv.bitwise_not(vis_roi, vis_roi)
                 vis[mask == 0] = 0
 
+
             if self.track_window and self.track_window[2] > 0 and self.track_window[3] > 0:
                 self.selection = None
                 prob = cv.calcBackProject([hsv], [0], self.hist, [0, 180], 1)
@@ -112,7 +113,11 @@ class App(object):
 
             cv.imshow('camshift', vis)
 
-            ch = cv.waitKey(5)
+            if self.track_window is None:
+                ch = cv.waitKey(2000)
+            else:
+                ch = cv.waitKey(50)
+
             if ch == 27:
                 break
             if ch == ord('b'):

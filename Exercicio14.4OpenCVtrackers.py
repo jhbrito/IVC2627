@@ -28,8 +28,8 @@ if tracker_type == 'ViT':
 ret, frame = cap.read()
 
 # Define an initial bounding box
-x, y, w, h = 150, 170, 40, 65  # simply hardcoded the values for traffic
-# x, y, w, h = 495, 156, 45, 80  # simply hardcoded the values for pedestrians vtest
+# x, y, w, h = 150, 170, 40, 65  # simply hardcoded the values for traffic
+x, y, w, h = 300, 190, 100, 70  # simply hardcoded the values
 
 bbox = (x, y, w, h)
 img2 = cv2.rectangle(frame, (x, y), (x + w, y + h), 255, 2)
